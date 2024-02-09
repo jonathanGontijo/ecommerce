@@ -1,4 +1,4 @@
-import 'package:ecommerce/common/widgets/custom_Button.dart';
+import 'package:ecommerce/common/widgets/custom_button.dart';
 import 'package:ecommerce/common/widgets/custom_textfield.dart';
 import 'package:ecommerce/constants/global_variables.dart';
 import 'package:flutter/material.dart';
@@ -120,7 +120,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 padding: const EdgeInsets.all(8),
                 color: GlobalVariables.backgroundColor,
                 child: Form(
-                  key: _signUpFormKey,
+                  key: _signInFormKey,
                   child: Column(
                     children: [
                       CustomTextField(
