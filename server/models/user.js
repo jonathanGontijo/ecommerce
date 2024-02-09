@@ -20,6 +20,10 @@ const userSchema = mongoose.Schema({
     password: {
         required: true,
         type: String,
+        // validator: (value)=> {
+        //     return value.length > 6
+        // },
+        // message : 'Email muito curto',
 
     },
     adress: {

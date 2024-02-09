@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        useMaterial3: true,
+        // useMaterial3: true,
       ),
       onGenerateRoute: (settings) => generateRoutes(settings),
       home: const AuthScreen(),
