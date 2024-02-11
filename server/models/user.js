@@ -10,7 +10,7 @@ const userSchema = mongoose.Schema({
         required: true,
         type: String,
         trim: true,
-        alidator: (value) => {
+        validator: (value) => {
             const re =
               /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
             return value.match(re);
@@ -20,10 +20,10 @@ const userSchema = mongoose.Schema({
     password: {
         required: true,
         type: String,
-        // validator: (value)=> {
-        //     return value.length > 6
-        // },
-        // message : 'Email muito curto',
+        validator: (value)=> {
+            return value.length > 6
+        },
+        message : 'Email muito curto',
 
     },
     adress: {
