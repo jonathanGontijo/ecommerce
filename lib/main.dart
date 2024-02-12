@@ -1,3 +1,4 @@
+import 'package:ecommerce/common/widgets/bottom_bar.dart';
 import 'package:ecommerce/constants/global_variables.dart';
 import 'package:ecommerce/features/auth/screens/auth_screen.dart';
 import 'package:ecommerce/features/auth/services/auth_services.dart';
@@ -35,7 +36,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Amazon Clone',
+      title: 'Ecommerce',
       theme: ThemeData(
         scaffoldBackgroundColor: GlobalVariables.backgroundColor,
         colorScheme: const ColorScheme.light(
@@ -51,7 +52,7 @@ class _MyAppState extends State<MyApp> {
       ),
       onGenerateRoute: (settings) => generateRoutes(settings),
       home: Provider.of<UserProvider>(context).user.token.isNotEmpty
-          ? const HomeScreen()
+          ? const BottomBar()
           : const AuthScreen(),
     );
   }

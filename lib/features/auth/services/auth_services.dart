@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:ecommerce/common/widgets/bottom_bar.dart';
 import 'package:ecommerce/constants/error_handling.dart';
 import 'package:ecommerce/constants/global_variables.dart';
 import 'package:ecommerce/constants/utils.dart';
@@ -75,7 +76,10 @@ class AuthService {
           Provider.of<UserProvider>(context, listen: false).setUser(res.body);
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
           Navigator.pushNamedAndRemoveUntil(
-              context, HomeScreen.routeName, (route) => false);
+            context,
+            BottomBar.routeName,
+            (route) => false,
+          );
         },
       );
     } catch (e) {
