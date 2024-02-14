@@ -1,4 +1,5 @@
 import 'package:ecommerce/constants/global_variables.dart';
+import 'package:ecommerce/features/admin/screens/add_product_screen.dart';
 import 'package:flutter/material.dart';
 
 class PostsScreen extends StatefulWidget {
@@ -9,13 +10,17 @@ class PostsScreen extends StatefulWidget {
 }
 
 class _PostsScreenState extends State<PostsScreen> {
+  void navigateToAddProduct() {
+    Navigator.pushNamed(context, AddProdutctScreen.routeName);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: const Center(child: Text('Produtos')),
       floatingActionButton: FloatingActionButton(
         backgroundColor: GlobalVariables.selectedNavBarColor,
-        onPressed: () {},
+        onPressed: navigateToAddProduct,
         child: const Icon(Icons.add),
         tooltip: 'Adicionar produtos',
       ),
