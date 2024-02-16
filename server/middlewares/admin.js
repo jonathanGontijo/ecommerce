@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
+//const adminRouter = require('../routes/admin');
 
 const admin = async (req, res, next ) => {
     try{
@@ -13,7 +14,7 @@ const admin = async (req, res, next ) => {
         .status(401)
         .json({msg: 'Falha na verificação do token, autorização negada!'});
 
-        const user = await User.finById(verified.id);
+        const user = await User.findById(verified.id);
 
         if(user.type == 'user' || user.type == 'seller'){
             return res.status(401).json({msg: "Você não é admin!"});
@@ -24,4 +25,6 @@ const admin = async (req, res, next ) => {
     }catch(err){
         res.status(500).json({error: err.message});
     }
-}
+};
+
+module.exports = admin;

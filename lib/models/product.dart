@@ -40,7 +40,9 @@ class Product {
       quantity: map['quantity']?.toDouble() ?? 0.0,
       images: List<String>.from(map['images']),
       category: map['category'] ?? '',
-      price: map['price']?.toDouble() ?? 0.0,
+      price: map["price"] == null
+          ? 0.0
+          : double.tryParse(map["price"].toString()) ?? 0.0,
       id: map['_id'],
       // rating: map['ratings'] != null
       //     ? List<Rating>.from(

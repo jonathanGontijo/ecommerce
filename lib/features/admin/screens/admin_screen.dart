@@ -1,7 +1,6 @@
 import 'package:ecommerce/constants/global_variables.dart';
 import 'package:ecommerce/features/account/screens/account_screen.dart';
 import 'package:ecommerce/features/admin/screens/posts_screen.dart';
-import 'package:ecommerce/features/home/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 

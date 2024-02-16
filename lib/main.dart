@@ -3,7 +3,6 @@ import 'package:ecommerce/constants/global_variables.dart';
 import 'package:ecommerce/features/admin/screens/admin_screen.dart';
 import 'package:ecommerce/features/auth/screens/auth_screen.dart';
 import 'package:ecommerce/features/auth/services/auth_services.dart';
-import 'package:ecommerce/features/home/screens/home_screen.dart';
 import 'package:ecommerce/providers/user_provider.dart';
 import 'package:ecommerce/routes.dart';
 import 'package:flutter/material.dart';
@@ -36,28 +35,28 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Ecommerce',
-        theme: ThemeData(
-          scaffoldBackgroundColor: GlobalVariables.backgroundColor,
-          colorScheme: const ColorScheme.light(
-            primary: GlobalVariables.secondaryColor,
-          ),
-          appBarTheme: const AppBarTheme(
-            elevation: 0,
-            iconTheme: IconThemeData(
-              color: Colors.black,
-            ),
-          ),
-          // useMaterial3: true,
+      debugShowCheckedModeBanner: false,
+      title: 'Ecommerce',
+      theme: ThemeData(
+        scaffoldBackgroundColor: GlobalVariables.backgroundColor,
+        colorScheme: const ColorScheme.light(
+          primary: GlobalVariables.secondaryColor,
         ),
-        onGenerateRoute: (settings) => generateRoutes(settings),
-        home: const AdminScreen()
-        // Provider.of<UserProvider>(context).user.token.isNotEmpty
-        //     ? Provider.of<UserProvider>(context).user.type == 'user'
-        //         ? const BottomBar()
-        //         : const AdminScreen()
-        //     : const AuthScreen(),
-        );
+        appBarTheme: const AppBarTheme(
+          elevation: 0,
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          ),
+        ),
+        // useMaterial3: true,
+      ),
+      onGenerateRoute: (settings) => generateRoutes(settings),
+      home: // const AdminScreen()
+          Provider.of<UserProvider>(context).user.token.isNotEmpty
+              ? Provider.of<UserProvider>(context).user.type == 'user'
+                  ? const BottomBar()
+                  : const AdminScreen()
+              : const AuthScreen(),
+    );
   }
 }
