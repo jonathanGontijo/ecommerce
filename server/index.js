@@ -5,6 +5,7 @@ const adminRouter = require("./routes/admin");
 
 // IMPORTS FROM OTHER FILES
 const authRouter = require("./routes/auth");
+const productRouter = require('./routes/product');
 
 //INIT
 const PORT = process.env.PORT || 3000;
@@ -15,7 +16,7 @@ const DB = "mongodb+srv://jonathan:fataMorgana@cluster0.5jkjxha.mongodb.net/"
 app.use(express.json());
 app.use(authRouter);
 app.use(adminRouter);
-//app.use(productRouter);
+app.use(productRouter);
 //app.use(userRouter);
 
 // Connections
