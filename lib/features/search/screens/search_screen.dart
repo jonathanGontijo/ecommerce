@@ -1,6 +1,7 @@
 import 'package:ecommerce/common/widgets/loader.dart';
 import 'package:ecommerce/constants/global_variables.dart';
 import 'package:ecommerce/features/home/widgets/address_box.dart';
+import 'package:ecommerce/features/product_details/screens/product_details_screen.dart';
 import 'package:ecommerce/features/search/services/search_services.dart';
 import 'package:ecommerce/features/search/widgets/searched_products.dart';
 import 'package:ecommerce/models/product.dart';
@@ -37,11 +38,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return
-        // products == null
-        //     ? const Loader()
-        //     :
-        Scaffold(
+    return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
         child: AppBar(
@@ -118,22 +115,33 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          const AddressBox(),
-          const SizedBox(height: 10),
-          Expanded(
-            child: ListView.builder(
-              itemCount: products!.length,
-              itemBuilder: (context, index) {
-                return SearchedProduct(
-                  product: products![index],
-                );
-              },
+      body: products == null
+          ? const Loader()
+          : Column(
+              children: [
+                const AddressBox(),
+                const SizedBox(height: 10),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: products!.length,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            ProductDetailsScreen.routeName,
+                            arguments: products![index],
+                          );
+                        },
+                        child: SearchedProduct(
+                          product: products![index],
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
-      ),
     );
   }
 }

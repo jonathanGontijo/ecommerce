@@ -66,7 +66,6 @@ class SearchedProduct extends StatelessWidget {
             ],
           ),
         ),
-        Row(),
       ],
     );
   }
