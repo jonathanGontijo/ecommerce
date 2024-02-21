@@ -54,6 +54,7 @@ Route<dynamic> generateRoutes(RouteSettings routeSettings) {
           product: product,
         ),
       );
+
     default:
       return MaterialPageRoute(
         settings: routeSettings,
